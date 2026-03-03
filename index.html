@@ -11,14 +11,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -27,46 +27,46 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-
+        
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
-
+        
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
-
+        
         .header p {
             opacity: 0.9;
             font-size: 1.1em;
         }
-
+        
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0;
         }
-
+        
         @media (max-width: 900px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
         }
-
+        
         .form-section {
             padding: 30px;
             border-right: 1px solid #e0e0e0;
         }
-
+        
         .results-section {
             padding: 30px;
             background: #f8f9fa;
         }
-
+        
         .section-title {
             font-size: 1.3em;
             color: #333;
@@ -77,18 +77,18 @@
             align-items: center;
             gap: 10px;
         }
-
+        
         .form-group {
             margin-bottom: 20px;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: #555;
             font-weight: 500;
         }
-
+        
         .form-group select,
         .form-group input[type="number"] {
             width: 100%;
@@ -98,20 +98,29 @@
             font-size: 1em;
             transition: border-color 0.3s;
         }
-
+        
         .form-group select:focus,
         .form-group input:focus {
             outline: none;
             border-color: #667eea;
         }
-
+        
+        /* 修改1：默认显示"请选择"的样式 */
+        .form-group select option:first-child {
+            color: #999;
+        }
+        
+        .form-group select:invalid {
+            color: #999;
+        }
+        
         .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 8px;
         }
-
+        
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -122,17 +131,95 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
+        
         .checkbox-item:hover {
             background: #e0e0e0;
         }
-
+        
         .checkbox-item input {
             width: 18px;
             height: 18px;
             accent-color: #667eea;
         }
-
+        
+        /* 修改3：23题多选样式 */
+        .multi-select-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        
+        .multi-select-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .multi-select-item:hover {
+            background: #e3f2fd;
+            border-color: #667eea;
+        }
+        
+        .multi-select-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: #667eea;
+            flex-shrink: 0;
+        }
+        
+        .multi-select-text {
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* 修改2：20题数量选择样式 */
+        .number-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 8px;
+        }
+        
+        .number-selector button {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .number-selector button:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .number-selector button:disabled {
+            border-color: #ccc;
+            color: #ccc;
+            cursor: not-allowed;
+            background: #f5f5f5;
+        }
+        
+        .number-display {
+            min-width: 60px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
         .btn-primary {
             width: 100%;
             padding: 15px;
@@ -144,12 +231,12 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
+        
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
-
+        
         .risk-card {
             background: white;
             border-radius: 15px;
@@ -157,59 +244,59 @@
             margin-bottom: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-
+        
         .risk-level {
             text-align: center;
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 20px;
         }
-
+        
         .risk-low {
             background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             color: #155724;
         }
-
+        
         .risk-high {
             background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
             color: #721c24;
         }
-
+        
         .risk-level h2 {
             font-size: 2em;
             margin-bottom: 10px;
         }
-
+        
         .risk-probability {
             font-size: 3em;
             font-weight: bold;
             margin: 20px 0;
         }
-
+        
         .chart-container {
             position: relative;
             height: 250px;
             margin: 20px 0;
         }
-
+        
         .feature-importance {
             max-height: 300px;
             overflow-y: auto;
         }
-
+        
         .feature-bar {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             font-size: 0.9em;
         }
-
+        
         .feature-name {
             width: 150px;
             color: #555;
             font-size: 0.85em;
         }
-
+        
         .feature-value-bar {
             flex: 1;
             height: 20px;
@@ -218,21 +305,21 @@
             overflow: hidden;
             margin: 0 10px;
         }
-
+        
         .feature-value-fill {
             height: 100%;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             border-radius: 10px;
             transition: width 0.5s;
         }
-
+        
         .feature-value-text {
             width: 50px;
             color: #667eea;
             font-weight: bold;
             font-size: 0.9em;
         }
-
+        
         .model-info {
             background: #e3f2fd;
             border-left: 4px solid #2196f3;
@@ -240,24 +327,24 @@
             border-radius: 0 10px 10px 0;
             margin-bottom: 20px;
         }
-
+        
         .model-info h4 {
             color: #1976d2;
             margin-bottom: 8px;
         }
-
+        
         .model-info p {
             color: #555;
             font-size: 0.9em;
             line-height: 1.6;
         }
-
+        
         .tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
         }
-
+        
         .tab-btn {
             padding: 10px 20px;
             border: none;
@@ -266,80 +353,62 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
+        
         .tab-btn.active {
             background: #667eea;
             color: white;
         }
-
+        
         .tab-content {
             display: none;
         }
-
+        
         .tab-content.active {
             display: block;
         }
-
+        
         .innovation-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             margin-top: 15px;
         }
-
+        
         .innovation-card {
             background: white;
             padding: 15px;
             border-radius: 10px;
             border-left: 4px solid #667eea;
         }
-
+        
         .innovation-card h5 {
             color: #667eea;
             margin-bottom: 8px;
             font-size: 0.9em;
         }
-
+        
         .innovation-card p {
             color: #666;
             font-size: 0.85em;
         }
-
+        
         .innovation-value {
             font-size: 1.5em;
             font-weight: bold;
             color: #333;
             margin-top: 5px;
         }
-
-        .file-upload {
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .file-upload:hover {
-            background: #f0f0ff;
-        }
-
-        .file-upload input {
-            display: none;
-        }
-
+        
         .loading {
             display: none;
             text-align: center;
             padding: 20px;
         }
-
+        
         .loading.active {
             display: block;
         }
-
+        
         .spinner {
             width: 50px;
             height: 50px;
@@ -349,11 +418,11 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 15px;
         }
-
+        
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
+        
         .recommendations {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -361,17 +430,17 @@
             border-radius: 0 10px 10px 0;
             margin-top: 20px;
         }
-
+        
         .recommendations h4 {
             color: #856404;
             margin-bottom: 10px;
         }
-
+        
         .recommendations ul {
             color: #856404;
             padding-left: 20px;
         }
-
+        
         .recommendations li {
             margin-bottom: 8px;
             line-height: 1.5;
@@ -384,7 +453,7 @@
             <h1>🦷 大学生牙周炎风险预测系统</h1>
             <p>基于分层融合机器学习模型（LR + RF + XGBoost）| 校园场景特征工程创新</p>
         </div>
-
+        
         <div class="main-content">
             <!-- 左侧：数据输入表单 -->
             <div class="form-section">
@@ -392,19 +461,21 @@
                     <span>📋</span>
                     健康风险评估问卷
                 </h3>
-
+                
                 <!-- 基本信息 -->
                 <div class="form-group">
                     <label>1. 您的性别</label>
-                    <select id="gender">
+                    <select id="gender" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="1">男</option>
                         <option value="2">女</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>2. 您的年级</label>
-                    <select id="grade">
+                    <select id="grade" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="1">大一</option>
                         <option value="2">大二</option>
                         <option value="3">大三</option>
@@ -413,247 +484,306 @@
                         <option value="6">研究生及以上</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>3. 您的专业类别</label>
-                    <select id="major">
+                    <select id="major" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="2">非医科</option>
                         <option value="1">医科</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>4. 您对牙周病的了解程度</label>
-                    <select id="knowledge">
+                    <select id="knowledge" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从未听说</option>
                         <option value="1">听说，但不了解</option>
                         <option value="2">知道基本概念</option>
                         <option value="3">非常了解</option>
                     </select>
                 </div>
-
+                
                 <!-- 口腔卫生行为 -->
                 <div class="form-group">
                     <label>7. 您每天刷牙的频率是？</label>
-                    <select id="brush_freq">
+                    <select id="brush_freq" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">不刷牙</option>
                         <option value="1">每天1次</option>
-                        <option value="2" selected>每天2次（早晚各1次）</option>
+                        <option value="2">每天2次（早晚各1次）</option>
                         <option value="3">每天3次以上（早晚+饭后）</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>8. 您每次刷牙的时长约为？</label>
-                    <select id="brush_duration">
+                    <select id="brush_duration" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">不足1分钟</option>
-                        <option value="1" selected>1-2分钟</option>
+                        <option value="1">1-2分钟</option>
                         <option value="2">2-3分钟</option>
                         <option value="3">3分钟以上</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>9. 您是否使用牙线、冲牙器、牙缝刷等口腔清洁辅助工具？</label>
-                    <select id="oral_tools">
+                    <select id="oral_tools" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从未使用</option>
                         <option value="1">偶尔使用（每周少于3次）</option>
                         <option value="2">经常使用（每周3次以上）</option>
                         <option value="3">每天使用</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>10. 您定期洗牙的频次是？</label>
-                    <select id="wash_freq">
+                    <select id="wash_freq" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从未洗过牙</option>
                         <option value="1">1年以上1次</option>
                         <option value="2">6-12个月1次</option>
                         <option value="3">3-6个月1次</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>11. 您刷牙的方法</label>
-                    <select id="brush_method">
+                    <select id="brush_method" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="1">横刷法</option>
                         <option value="2">竖刷法</option>
                         <option value="3">巴氏刷牙法</option>
                         <option value="4">其他</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>12. 牙刷更换频率</label>
-                    <select id="brush_change">
+                    <select id="brush_change" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">用到坏为止</option>
                         <option value="0">6个月以上</option>
                         <option value="1">3-6个月</option>
-                        <option value="2" selected>1-3个月</option>
+                        <option value="2">1-3个月</option>
                         <option value="3">1个月以内</option>
                     </select>
                 </div>
-
+                
                 <!-- 生活习惯 -->
                 <div class="form-group">
                     <label>14. 您的日常饮食中，甜食、含糖饮料的摄入频次是？</label>
-                    <select id="sugar_intake">
+                    <select id="sugar_intake" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="3">每天1次以上</option>
                         <option value="2">每周3-6次</option>
-                        <option value="1" selected>每周1-2次</option>
+                        <option value="1">每周1-2次</option>
                         <option value="0">每月1次以下</option>
                         <option value="0">几乎不摄入</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>15. 是否吸烟</label>
-                    <select id="smoking">
+                    <select id="smoking" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="1">从不</option>
                         <option value="2">偶尔</option>
                         <option value="3">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>15. 是否饮酒</label>
-                    <select id="drinking">
+                    <select id="drinking" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="1">从不</option>
                         <option value="2">偶尔</option>
                         <option value="3">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>17. 您平均每晚的睡眠时长？</label>
-                    <select id="sleep">
+                    <select id="sleep" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">5小时以下</option>
                         <option value="1">5-6小时</option>
                         <option value="2">6-7小时</option>
-                        <option value="3" selected>7-8小时</option>
+                        <option value="3">7-8小时</option>
                         <option value="4">8小时以上</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>18. 您每周进行体育锻炼的频次</label>
-                    <select id="exercise">
+                    <select id="exercise" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
                         <option value="1">少于1次</option>
-                        <option value="2" selected>1-2次/周</option>
+                        <option value="2">1-2次/周</option>
                         <option value="3">3-4次/周</option>
                         <option value="4">每天</option>
                     </select>
                 </div>
-
+                
                 <!-- 心理因素 -->
                 <div class="form-group">
                     <label>19. 我感到学业负担很重，经常感到压力</label>
-                    <select id="stress">
+                    <select id="stress" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
-                        <option value="1" selected>偶尔</option>
+                        <option value="1">偶尔</option>
                         <option value="2">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>19. 我担心考试成绩，经常焦虑</label>
-                    <select id="anxiety">
+                    <select id="anxiety" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
-                        <option value="1" selected>偶尔</option>
+                        <option value="1">偶尔</option>
                         <option value="2">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>19. 我因为学业压力而减少睡眠，或饮食不规律</label>
-                    <select id="stress_sleep">
+                    <select id="stress_sleep" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
-                        <option value="1" selected>偶尔</option>
+                        <option value="1">偶尔</option>
                         <option value="2">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>19. 学业压力影响了我的日常生活和情绪</label>
-                    <select id="stress_life">
+                    <select id="stress_life" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
-                        <option value="1" selected>偶尔</option>
+                        <option value="1">偶尔</option>
                         <option value="2">经常</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>19. 当您压力大时，是否会忽视口腔卫生</label>
-                    <select id="stress_oral">
+                    <select id="stress_oral" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">从不</option>
-                        <option value="1" selected>偶尔</option>
+                        <option value="1">偶尔</option>
                         <option value="2">经常</option>
                     </select>
                 </div>
-
-                <!-- 其他风险因素 -->
+                
+                <!-- 修改2：20题 数量选择器 -->
                 <div class="form-group">
-                    <label>20. 口腔不良习惯数量（如咬指甲、咬笔等）</label>
-                    <input type="number" id="bad_habits" min="0" max="10" value="0">
+                    <label>20. 口腔不良习惯数量（如咬指甲、咬笔、单侧咀嚼、口呼吸等）</label>
+                    <div class="number-selector">
+                        <button type="button" onclick="changeNumber(-1)" id="btn-minus">−</button>
+                        <div class="number-display" id="bad-habits-display">0</div>
+                        <button type="button" onclick="changeNumber(1)" id="btn-plus">+</button>
+                    </div>
+                    <input type="hidden" id="bad_habits" value="0">
+                    <p style="color: #999; font-size: 0.85em; margin-top: 8px;">点击 + 或 − 调整数量（0-10）</p>
                 </div>
-
+                
                 <div class="form-group">
                     <label>21. 直系亲属中是否有确诊过牙周疾病？</label>
-                    <select id="family_history">
+                    <select id="family_history" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">无</option>
                         <option value="1">有，1人以上</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
                     <label>22. 是否有过口腔外伤史？</label>
-                    <select id="oral_injury">
+                    <select id="oral_injury" required>
+                        <option value="" disabled selected>请选择</option>
                         <option value="0">无</option>
                         <option value="1">有，1次</option>
                         <option value="2">有，多次</option>
                     </select>
                 </div>
-
+                
+                <!-- 修改3：23题 多选题 -->
                 <div class="form-group">
-                    <label>23. 是否出现以下自觉症状？（牙龈出血、红肿等）</label>
-                    <select id="symptoms">
-                        <option value="0">无</option>
-                        <option value="1">有</option>
-                    </select>
+                    <label>23. （自我评估）您是否出现以下情况？（可多选）</label>
+                    <div class="multi-select-group" id="symptoms-group">
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="牙龈出血" onchange="updateSymptoms()">
+                            <span class="multi-select-text">A. 牙龈出血（刷牙或咬硬物时）</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="牙龈红肿" onchange="updateSymptoms()">
+                            <span class="multi-select-text">B. 牙龈红肿、胀痛</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="口臭" onchange="updateSymptoms()">
+                            <span class="multi-select-text">C. 持续性口臭</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="牙齿松动" onchange="updateSymptoms()">
+                            <span class="multi-select-text">D. 牙齿松动或移位</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="牙缝变大" onchange="updateSymptoms()">
+                            <span class="multi-select-text">E. 牙缝变大、食物嵌塞</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="牙龈退缩" onchange="updateSymptoms()">
+                            <span class="multi-select-text">F. 牙龈退缩、牙根暴露</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="咀嚼无力" onchange="updateSymptoms()">
+                            <span class="multi-select-text">G. 咀嚼无力或疼痛</span>
+                        </label>
+                        <label class="multi-select-item">
+                            <input type="checkbox" name="symptoms" value="以上皆无" onchange="updateSymptoms()" id="symptom-none">
+                            <span class="multi-select-text">H. 以上皆无</span>
+                        </label>
+                    </div>
+                    <input type="hidden" id="symptoms" value="0">
+                    <p style="color: #667eea; font-size: 0.9em; margin-top: 10px;" id="symptoms-summary">已选择：无</p>
                 </div>
-
+                
                 <button class="btn-primary" onclick="predictRisk()">
                     🔍 开始风险评估
                 </button>
-
+                
                 <div class="loading" id="loading">
                     <div class="spinner"></div>
                     <p>正在运行分层融合模型...</p>
                 </div>
             </div>
-
+            
             <!-- 右侧：预测结果与可视化 -->
             <div class="results-section">
                 <h3 class="section-title">
                     <span>📊</span>
                     预测结果与模型分析
                 </h3>
-
+                
                 <div class="model-info">
                     <h4>🧠 分层融合模型架构</h4>
                     <p>基模型：逻辑回归(LR) + 随机森林(RF) + XGBoost<br>
                     元模型：逻辑回归（融合基模型预测概率）<br>
                     特征工程：23项基础特征 + 9项校园场景创新特征</p>
                 </div>
-
+                
                 <!-- 初始状态提示 -->
                 <div id="initial-state" style="text-align: center; padding: 50px; color: #999;">
                     <p style="font-size: 4em; margin-bottom: 20px;">🦷</p>
                     <p>请填写左侧问卷并点击"开始风险评估"</p>
                     <p style="font-size: 0.9em; margin-top: 15px;">系统将自动计算32维特征（含9项创新交互特征）</p>
                 </div>
-
+                
                 <!-- 预测结果（默认隐藏） -->
                 <div id="prediction-result" style="display: none;">
                     <div class="risk-card">
@@ -662,13 +792,13 @@
                             <div class="risk-probability" id="risk-prob">--%</div>
                             <p id="risk-desc">高/低风险概率</p>
                         </div>
-
+                        
                         <div class="tabs">
                             <button class="tab-btn active" onclick="switchTab('charts')">📈 模型对比</button>
                             <button class="tab-btn" onclick="switchTab('features')">⭐ 特征重要性</button>
                             <button class="tab-btn" onclick="switchTab('innovation')">🚀 创新特征</button>
                         </div>
-
+                        
                         <div class="tab-content active" id="charts-tab">
                             <h4 style="margin-bottom: 15px; color: #555;">ROC曲线对比（融合模型最优）</h4>
                             <div class="chart-container">
@@ -689,14 +819,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="tab-content" id="features-tab">
                             <h4 style="margin-bottom: 15px; color: #555;">Top 15 特征重要性（XGBoost）</h4>
                             <div class="feature-importance" id="feature-list">
                                 <!-- 动态生成 -->
                             </div>
                         </div>
-
+                        
                         <div class="tab-content" id="innovation-tab">
                             <h4 style="margin-bottom: 15px; color: #555;">校园场景创新特征（自动计算）</h4>
                             <div class="innovation-features" id="innovation-list">
@@ -704,7 +834,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="recommendations" id="recommendations">
                         <h4>💡 个性化健康建议</h4>
                         <ul id="recommendation-list">
@@ -715,11 +845,11 @@
             </div>
         </div>
     </div>
-
+    
     <script>
         // 全局图表实例
         let rocChart = null;
-
+        
         // 特征重要性数据（模拟训练结果）
         const featureImportance = [
             { name: '校园生活风险', value: 0.156 },
@@ -738,20 +868,77 @@
             { name: '家族史_有', value: 0.035 },
             { name: '口腔护理合规性', value: 0.032 }
         ];
-
+        
+        // 修改2：数量选择器功能
+        function changeNumber(delta) {
+            const display = document.getElementById('bad-habits-display');
+            const input = document.getElementById('bad_habits');
+            let current = parseInt(input.value) || 0;
+            let newValue = current + delta;
+            
+            // 限制范围 0-10
+            if (newValue < 0) newValue = 0;
+            if (newValue > 10) newValue = 10;
+            
+            input.value = newValue;
+            display.textContent = newValue;
+            
+            // 更新按钮状态
+            document.getElementById('btn-minus').disabled = (newValue <= 0);
+            document.getElementById('btn-plus').disabled = (newValue >= 10);
+        }
+        
+        // 修改3：多选题更新
+        function updateSymptoms() {
+            const checkboxes = document.querySelectorAll('input[name="symptoms"]:checked');
+            const noneCheckbox = document.getElementById('symptom-none');
+            const summary = document.getElementById('symptoms-summary');
+            const hiddenInput = document.getElementById('symptoms');
+            
+            let selectedValues = [];
+            checkboxes.forEach(cb => {
+                selectedValues.push(cb.value);
+            });
+            
+            // 如果选了"以上皆无"，取消其他选项
+            if (noneCheckbox.checked && selectedValues.length > 1) {
+                document.querySelectorAll('input[name="symptoms"]').forEach(cb => {
+                    if (cb.value !== '以上皆无') {
+                        cb.checked = false;
+                    }
+                });
+                selectedValues = ['以上皆无'];
+            }
+            
+            // 如果选了其他选项，取消"以上皆无"
+            if (selectedValues.includes('以上皆无') && selectedValues.length > 1) {
+                noneCheckbox.checked = false;
+                selectedValues = selectedValues.filter(v => v !== '以上皆无');
+            }
+            
+            // 更新显示
+            if (selectedValues.length === 0 || selectedValues.includes('以上皆无')) {
+                summary.textContent = '已选择：无';
+                hiddenInput.value = '0';
+            } else {
+                summary.textContent = `已选择：${selectedValues.length}项 (${selectedValues.join('、')})`;
+                hiddenInput.value = '1';
+            }
+        }
+        
         // 切换标签页
         function switchTab(tab) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
+            
             event.target.classList.add('active');
             document.getElementById(tab + '-tab').classList.add('active');
         }
-
+        
         // 特征编码函数（与Python代码一致）
         function encodeFeatures(inputData) {
             const features = {};
-
+            
             // 基础特征编码
             features['性别_女'] = inputData.gender === 2 ? 1 : 0;
             features['年级编码'] = inputData.grade;
@@ -776,25 +963,25 @@
             features['不良习惯数量'] = inputData.bad_habits;
             features['家族史_有'] = inputData.family_history;
             features['口腔外伤_有'] = inputData.oral_injury > 0 ? 1 : 0;
-
+            
             // 创新特征计算（与Python代码完全一致）
-            features['校园清洁能力'] = (features['刷牙频率编码'] * features['刷牙时长编码']) +
+            features['校园清洁能力'] = (features['刷牙频率编码'] * features['刷牙时长编码']) + 
                                       features['辅助工具编码'] + features['洗牙频率编码'];
-            features['校园生活风险'] = features['甜食摄入编码'] + features['吸烟_是'] +
+            features['校园生活风险'] = features['甜食摄入编码'] + features['吸烟_是'] + 
                                       features['饮酒_是'] + (4 - features['睡眠时长编码']);
-            features['学业压力综合'] = (features['压力感_编码'] + features['考试焦虑_编码'] +
-                                      features['压力影响作息_编码'] + features['压力影响生活_编码'] +
+            features['学业压力综合'] = (features['压力感_编码'] + features['考试焦虑_编码'] + 
+                                      features['压力影响作息_编码'] + features['压力影响生活_编码'] + 
                                       features['压力忽视口腔_编码']) / 5;
-            features['口腔护理合规性'] = features['刷牙方法_巴氏'] + features['牙刷更换编码'] +
+            features['口腔护理合规性'] = features['刷牙方法_巴氏'] + features['牙刷更换编码'] + 
                                         features['洗牙频率编码'];
             features['健康生活行为'] = features['运动频率编码'] - (features['吸烟_是'] + features['饮酒_是']);
             features['遗传行为风险'] = features['家族史_有'] * features['口腔护理合规性'];
             features['压力口腔忽视'] = features['学业压力综合'] * features['压力忽视口腔_编码'];
             features['外伤不良习惯风险'] = features['口腔外伤_有'] * features['不良习惯数量'];
-
+            
             return features;
         }
-
+        
         // 模拟基模型预测（使用简化逻辑模拟融合模型行为）
         function simulateBaseModels(features) {
             // 构建特征向量（按原始代码顺序）
@@ -811,19 +998,19 @@
                 features['口腔护理合规性'], features['健康生活行为'], features['遗传行为风险'],
                 features['压力口腔忽视'], features['外伤不良习惯风险']
             ];
-
+            
             // 模拟标准化（简化）
             const scaledVector = featureVector.map((v, i) => {
                 const means = [0.5, 2.5, 0.3, 1.5, 1.8, 1.2, 0.8, 0.5, 0.4, 1.5, 1.2, 0.2, 0.3, 2.8, 2.0, 0.8, 0.9, 0.7, 0.8, 0.6, 1.5, 0.25, 0.15, 4.5, 3.2, 0.8, 2.2, 1.5, 0.8, 0.5, 0.3];
                 const stds = [0.5, 1.5, 0.45, 1.0, 1.0, 1.0, 1.0, 0.8, 0.49, 1.0, 1.0, 0.4, 0.45, 1.0, 1.2, 0.75, 0.8, 0.7, 0.75, 0.7, 2.0, 0.43, 0.36, 3.0, 2.0, 0.6, 1.5, 1.8, 1.2, 0.9, 0.7];
                 return (v - (means[i] || 0)) / (stds[i] || 1);
             });
-
+            
             // 模拟LR预测（线性组合+sigmoid）
             const lrWeights = [0.15, 0.08, -0.12, -0.10, -0.25, -0.20, -0.18, -0.15, -0.12, -0.10, 0.22, 0.35, 0.28, -0.15, -0.08, 0.12, 0.10, 0.15, 0.08, 0.20, 0.18, 0.25, 0.15, -0.30, 0.35, 0.28, -0.22, -0.10, 0.15, 0.25, 0.20];
             const lrLogit = scaledVector.reduce((sum, v, i) => sum + v * (lrWeights[i] || 0), -1.0);
             const lrProba = 1 / (1 + Math.exp(-lrLogit));
-
+            
             // 模拟RF预测（树模型，非线性）
             const rfScore = (
                 (features['校园生活风险'] > 4 ? 0.7 : 0.3) * 0.25 +
@@ -834,7 +1021,7 @@
                 (features['家族史_有'] === 1 ? 0.7 : 0.35) * 0.10
             );
             const rfProba = Math.min(Math.max(rfScore, 0.05), 0.95);
-
+            
             // 模拟XGB预测（梯度提升，更复杂的非线性）
             const xgbScore = (
                 0.15 * Math.min(features['校园生活风险'] / 6, 1) +
@@ -854,27 +1041,27 @@
                 (-0.05) * features['专业_医科']
             );
             const xgbProba = 1 / (1 + Math.exp(-(xgbScore * 4 - 2)));
-
+            
             return { lr: lrProba, rf: rfProba, xgb: xgbProba };
         }
-
+        
         // 融合模型预测（元模型：逻辑回归）
         function fusionPredict(baseProbas) {
             // 元模型权重（模拟训练好的LR元模型）
             const metaWeights = [0.25, 0.35, 0.40]; // LR, RF, XGB权重
             const metaIntercept = -0.5;
-
-            const metaLogit = metaIntercept +
-                metaWeights[0] * baseProbas.lr +
-                metaWeights[1] * baseProbas.rf +
+            
+            const metaLogit = metaIntercept + 
+                metaWeights[0] * baseProbas.lr + 
+                metaWeights[1] * baseProbas.rf + 
                 metaWeights[2] * baseProbas.xgb;
-
+            
             const fusionProba = 1 / (1 + Math.exp(-metaLogit));
-
+            
             // 最优阈值0.45（F1最大化）
             const bestThreshold = 0.45;
             const prediction = fusionProba >= bestThreshold ? 1 : 0;
-
+            
             return {
                 prediction: prediction,
                 probability: fusionProba,
@@ -882,15 +1069,15 @@
                 baseProbas: baseProbas
             };
         }
-
+        
         // 生成个性化建议
         function generateRecommendations(features, riskLevel) {
             const recs = [];
-
+            
             if (riskLevel === 1) {
                 recs.push('⚠️ <strong>高风险警示</strong>：建议尽快预约牙周专科检查');
             }
-
+            
             // 根据具体风险因素给出建议
             if (features['校园生活风险'] > 4) {
                 recs.push('🍬 <strong>控制甜食摄入</strong>：当前风险指数' + features['校园生活风险'].toFixed(1) + '，建议减少含糖饮料，避免熬夜');
@@ -913,22 +1100,22 @@
             if (features['口腔外伤_有'] === 1) {
                 recs.push('🦷 <strong>外伤护理</strong>：有口腔外伤史，注意避免咬硬物，定期检查牙周状况');
             }
-
+            
             // 通用建议
             recs.push('📅 <strong>定期检查</strong>：建议每年至少1次口腔检查，早发现早治疗');
             recs.push('🎯 <strong>巴氏刷牙法</strong>：45度角轻柔刷牙，清洁牙龈沟');
-
+            
             return recs;
         }
-
+        
         // 绘制ROC曲线
         function drawROCChart() {
             const ctx = document.getElementById('rocChart').getContext('2d');
-
+            
             if (rocChart) {
                 rocChart.destroy();
             }
-
+            
             // 模拟ROC曲线数据点
             const lrFPR = [0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1];
             const lrTPR = [0, 0.4, 0.6, 0.7, 0.78, 0.85, 0.90, 0.93, 0.95, 0.98, 1];
@@ -938,7 +1125,7 @@
             const xgbTPR = [0, 0.55, 0.75, 0.85, 0.9, 0.94, 0.96, 0.98, 0.99, 0.995, 1];
             const fusionFPR = [0, 0.01, 0.02, 0.04, 0.07, 0.12, 0.18, 0.25, 0.4, 0.65, 1];
             const fusionTPR = [0, 0.6, 0.8, 0.88, 0.93, 0.96, 0.975, 0.985, 0.992, 0.997, 1];
-
+            
             rocChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -1011,12 +1198,12 @@
                 }
             });
         }
-
+        
         // 渲染特征重要性
         function renderFeatureImportance() {
             const container = document.getElementById('feature-list');
             const maxValue = Math.max(...featureImportance.map(f => f.value));
-
+            
             container.innerHTML = featureImportance.map(f => `
                 <div class="feature-bar">
                     <div class="feature-name">${f.name}</div>
@@ -1027,7 +1214,7 @@
                 </div>
             `).join('');
         }
-
+        
         // 渲染创新特征
         function renderInnovationFeatures(features) {
             const container = document.getElementById('innovation-list');
@@ -1041,7 +1228,7 @@
                 { name: '压力口腔忽视', value: features['压力口腔忽视'].toFixed(2), desc: '压力综合×忽视口腔' },
                 { name: '外伤不良习惯风险', value: features['外伤不良习惯风险'], desc: '外伤×不良习惯数' }
             ];
-
+            
             container.innerHTML = innovations.map(inv => `
                 <div class="innovation-card">
                     <h5>${inv.name}</h5>
@@ -1050,12 +1237,27 @@
                 </div>
             `).join('');
         }
-
+        
         // 主预测函数
         function predictRisk() {
+            // 验证所有必填项
+            const requiredFields = ['gender', 'grade', 'major', 'knowledge', 'brush_freq', 
+                'brush_duration', 'oral_tools', 'wash_freq', 'brush_method', 'brush_change',
+                'sugar_intake', 'smoking', 'drinking', 'sleep', 'exercise', 'stress',
+                'anxiety', 'stress_sleep', 'stress_life', 'stress_oral', 'family_history', 'oral_injury'];
+            
+            for (let field of requiredFields) {
+                const value = document.getElementById(field).value;
+                if (!value || value === '') {
+                    alert('请完成所有必填项后再提交！');
+                    document.getElementById(field).focus();
+                    return;
+                }
+            }
+            
             // 显示加载状态
             document.getElementById('loading').classList.add('active');
-
+            
             // 收集表单数据
             const inputData = {
                 gender: parseInt(document.getElementById('gender').value),
@@ -1082,32 +1284,32 @@
                 family_history: parseInt(document.getElementById('family_history').value),
                 oral_injury: parseInt(document.getElementById('oral_injury').value)
             };
-
+            
             // 模拟异步计算
             setTimeout(() => {
                 // 特征工程
                 const features = encodeFeatures(inputData);
-
+                
                 // 基模型预测
                 const baseProbas = simulateBaseModels(features);
-
+                
                 // 融合模型预测
                 const result = fusionPredict(baseProbas);
-
+                
                 // 生成建议
                 const recommendations = generateRecommendations(features, result.prediction);
-
+                
                 // 更新UI
                 document.getElementById('loading').classList.remove('active');
                 document.getElementById('initial-state').style.display = 'none';
                 document.getElementById('prediction-result').style.display = 'block';
-
+                
                 // 风险卡片样式
                 const riskCard = document.getElementById('risk-level-card');
                 const riskTitle = document.getElementById('risk-title');
                 const riskProb = document.getElementById('risk-prob');
                 const riskDesc = document.getElementById('risk-desc');
-
+                
                 if (result.prediction === 0) {
                     riskCard.className = 'risk-level risk-low';
                     riskTitle.textContent = '✅ 低风险';
@@ -1117,28 +1319,31 @@
                     riskTitle.textContent = '⚠️ 高风险';
                     riskDesc.textContent = '建议尽快进行牙周专科检查';
                 }
-
+                
                 riskProb.textContent = (result.probability * 100).toFixed(1) + '%';
-
+                
                 // 渲染可视化
                 drawROCChart();
                 renderFeatureImportance();
                 renderInnovationFeatures(features);
-
+                
                 // 更新建议列表
-                document.getElementById('recommendation-list').innerHTML =
+                document.getElementById('recommendation-list').innerHTML = 
                     recommendations.map(r => `<li>${r}</li>`).join('');
-
+                
                 // 滚动到结果区域
                 document.querySelector('.results-section').scrollIntoView({ behavior: 'smooth' });
-
+                
             }, 800);
         }
-
+        
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 预渲染特征重要性（空状态）
             renderFeatureImportance();
+            
+            // 初始化数量选择器按钮状态
+            changeNumber(0);
         });
     </script>
 </body>
